@@ -9,7 +9,7 @@ const config = {
     name: 'fellow4U',
     username: 'root',
     password: 'Y649394$y',
-    host: '192.168.2.12',
+    host: 'localhost',
     dialect: 'mysql',
     logging: console.log
   },

@@ -1,6 +1,8 @@
 const { app, sequelize, config } = require('./config/config');  // Đảm bảo đường dẫn là chính xác
 const tourRoutes = require('./routes/tourRoutes');
 
+
+app.use('/resource/images', express.static(path.join(__dirname, 'images')));
 // Sử dụng các route
 app.use('/api', tourRoutes);
 
