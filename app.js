@@ -3,6 +3,9 @@ const tourRoutes = require('./routes/tourRoutes');
 const express = require('express');
 const path  = require('path');  
 
+const cors = require('cors');
+
+app.use(cors());
 app.use('/resource/images', express.static(path.join(__dirname,"resource", 'images')));
 // Sử dụng các route
 app.use('/api', tourRoutes);
