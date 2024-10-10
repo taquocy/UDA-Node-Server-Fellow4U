@@ -4,19 +4,33 @@ const bodyParser = require('body-parser');
 const { Sequelize } = require('sequelize');
 
 // Cấu hình chung cho cơ sở dữ liệu và server
+// const config = {
+//   database: {
+//     name: 'fellow4U',
+//     username: 'root',
+//     password: 'Y649394$y',
+//     host: 'localhost',
+//     dialect: 'mysql',
+//     logging: console.log
+//   },
+//   server: {
+//     port: 5000
+//   }
+// };
 const config = {
   database: {
-    name: 'fellow4U',
-    username: 'root',
+    name: 'batdongsandanang',
+    username: 'taquocy',
     password: 'Y649394$y',
-    host: 'localhost',
+    host: 'db4free.net',
     dialect: 'mysql',
     logging: console.log
   },
   server: {
-    port: 3000
+    port: 5000
   }
 };
+
 
 // Khởi tạo Express app và Sequelize instance
 const app = express();

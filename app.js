@@ -13,7 +13,7 @@ app.use('/api', tourRoutes);
 // Đồng bộ với cơ sở dữ liệu và khởi động server
 sequelize.sync()
   .then(() => {
-    app.listen(config.server.port, () => {
+    app.listen(config.server.port,'0.0.0.0', () => {
       console.log(`Server đang chạy trên cổng ${config.server.port}`);
     });
   })
