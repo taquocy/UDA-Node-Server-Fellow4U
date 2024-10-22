@@ -17,6 +17,7 @@ const { Sequelize } = require('sequelize');
 //     port: 5000
 //   }
 // };
+// TODO : Connect to db4free.net
 const config = {
   database: {
     name: 'batdongsandanang',
