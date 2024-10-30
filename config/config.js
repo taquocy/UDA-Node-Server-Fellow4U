@@ -1,24 +1,8 @@
-// Import các thư viện cần thiết
 const express = require('express');
 const bodyParser = require('body-parser');
 const { Sequelize } = require('sequelize');
+const User = require('../models/userModel'); // Import the User model
 
-// Cấu hình chung cho cơ sở dữ liệu và server
-// const config = {
-//   database: {
-//     name: 'fellow4U',
-//     username: 'root',
-//     password: 'Y649394$y',
-//     host: 'localhost',
-//     dialect: 'mysql',
-//     logging: console.log
-//   },
-//   server: {
-//     port: 5000
-//   }
-// };
-// TODO : Connect to db4free.net ST22B
-// LTDD:....
 const config = {
   database: {
     name: 'batdongsandanang',
@@ -33,8 +17,6 @@ const config = {
   }
 };
 
-
-// Khởi tạo Express app và Sequelize instance
 const app = express();
 app.use(bodyParser.json());
 
@@ -48,13 +30,20 @@ const sequelize = new Sequelize(
   }
 );
 
-// Kiểm tra kết nối cơ sở dữ liệu
 sequelize.authenticate()
   .then(() => {
     console.log('Kết nối thành công với cơ sở dữ liệu MySQL');
   })
   .catch(err => {
     console.error('Lỗi kết nối:', err);
+  });
+
+sequelize.sync() // Ensure the User model is synced with the database
+  .then(() => {
+    console.log('Đồng bộ hóa thành công với cơ sở dữ liệu');
+  })
+  .catch(err => {
+    console.error('Lỗi khi đồng bộ hóa:', err);
   });
 
 module.exports = { app, sequelize, config };
