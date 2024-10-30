@@ -1,55 +1,55 @@
 const { DataTypes } = require('sequelize');
-const { sequelize } = require('../config/config');
+const {sequelize} = require('../config/config'); // Nhớ đảm bảo sequelize được xuất đúng cách từ config
 
 const User = sequelize.define('User', {
-  user_id: {
+  id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
-    primaryKey: true
+    primaryKey: true,
   },
   full_name: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   email: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true
+    unique: true,
   },
   password: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   phone_number: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
   },
   user_type: {
     type: DataTypes.ENUM('Traveler', 'Guide'),
-    allowNull: false
+    allowNull: false,
   },
   bio: {
-    type: DataTypes.TEXT
+    type: DataTypes.TEXT,
   },
   language_spoken: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
   },
   country: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
   },
   avatar: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
   },
   created_at: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW
+    type: DataTypes.STRING,
   },
   updated_at: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW
-  }
+    type: DataTypes.STRING,
+  },
 }, {
   tableName: 'User',
-  timestamps: true
+  timestamps: true, // Điều này sẽ tự động thêm `createdAt` và `updatedAt`
+  createdAt: 'created_at', // Đổi tên createdAt thành created_at
+  updatedAt: 'updated_at', // Đổi tên updatedAt thành updated_at
 });
 
 module.exports = User;
